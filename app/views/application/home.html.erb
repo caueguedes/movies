@@ -1,1 +1,22 @@
-<h1> home </h1>
+
+
+<hr>
+
+<table>
+  <tr>
+    <th>Nome do Filme</th>
+    <th>Episódio</th>
+    <th>Diretor</th>
+    <th>Ano</th>
+  </tr>
+  
+  <% @movies["results"].each_with_index do |item, index| %>
+    <tr>
+      <td><%= item["title"] %></td> 
+      <td><%= item["episode_id"] %></td> 
+      <td><%= item["director"] %></td> 
+      <td><%= item["release_date"] %></td> 
+    </tr>
+  <% end %>
+</table>
+
