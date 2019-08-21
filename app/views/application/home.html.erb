@@ -1,22 +1,17 @@
+<br>
 
-
-<hr>
-
-<table>
-  <tr>
+<table class="table table-striped table-bordered">
+  <tr class="text-center thead-light">
     <th>Nome do Filme</th>
     <th>Episódio</th>
     <th>Diretor</th>
     <th>Ano</th>
   </tr>
-  
   <% @movies["results"].each_with_index do |item, index| %>
-    <tr>
-      <td><%= item["title"] %></td> 
-      <td><%= item["episode_id"] %></td> 
-      <td><%= item["director"] %></td> 
-      <td><%= item["release_date"] %></td> 
-    </tr>
+    <%= render partial: 'application/table', locals: { item: item,  index: index} %>
   <% end %>
 </table>
 
+ 
+    
+  
