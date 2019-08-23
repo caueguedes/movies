@@ -11,4 +11,4 @@ $ ->
         y.addClass("d-none")
     else
         w.addClass("d-none")
-        y.remove("d-none")
+        y.removeClass("d-none")
