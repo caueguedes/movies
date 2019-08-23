@@ -1,22 +1,20 @@
 class LikeController < ApplicationController
-    # before_action :authenticate_user!
+    before_action :authenticate_user!
 
     def create
         if current_user.likes.count < 2
             @like = current_user.likes.new(like_params)
             @like.save
         
+
+        # format.json { render :show, status: :created, location: @post }
             respond_to do |format|
-                #JSON StatuS 200
-                format.json { render json: @like }
-                format.js
+                format.js 
             end
         else
             respond_to do |format|
-                format.json { render json: @like }
-                format.js
-                # status ok but nao gravou
-            
+                format.json { render json: @like.errors, status: 400 }
+                # format.js            
             end
         end
     end
@@ -29,10 +27,6 @@ class LikeController < ApplicationController
             format.js 
         end
     end
-
-    # respond_to do |format|
-    #     format.js { :location => path_to_controller_method_url(argument) }
-    # end
 
     private
         def like_params

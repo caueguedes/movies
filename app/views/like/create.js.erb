@@ -1,6 +1,0 @@
-$(() => $("a[data-remote]").on("ajax:success", function(event) {
-  if (event.target.className === "fa fa-heart text-danger") {
-      return $('#'+event.target.parentNode.id).html("<%= j render partial: 'unlike', :locals => {:id => id}  %>");
-  } 
-}));
-
