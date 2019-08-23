@@ -1,0 +1,13 @@
+<div id='par<%= item["episode_id"] %>'>
+  <%= link_to "", 
+        like_index_path, 
+        id: "#{item["episode_id"]}",
+        data: { method: :post, 
+                remote: true, 
+                params: { like: {
+                        api_key: item["episode_id"]
+                        }}.to_param },
+        class: 'fa fa-heart-o text-danger'%>
+</div>
+
+

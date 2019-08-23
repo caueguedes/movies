@@ -6,6 +6,7 @@ OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 class Swapi
     include HTTParty
     format :json
+    read_timeout 10
 
     base_uri 'swapi.co'
 

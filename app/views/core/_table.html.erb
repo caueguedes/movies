@@ -1,0 +1,14 @@
+<tr>
+  <td><%= item["title"] %></td> 
+  <td><%= item["episode_id"] %></td> 
+  <td><%= item["director"] %></td> 
+  <td class="text-center"><%= item["release_date"].to_date.strftime("%Y") %></td> 
+  <td class="text-center"> 
+    <% if @likes.include? item["episode_id"] %>
+      <%= render partial: 'like/unlike', locals: { item: item,  likes: @likes} %>
+    <% else %>        
+      <%= render partial: 'like/like', locals: { item: item,  likes: @likes} %>
+    <% end %>
+  </td>
+</tr>
+

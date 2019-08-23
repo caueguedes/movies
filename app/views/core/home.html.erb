@@ -6,12 +6,12 @@
     <th>Episódio</th>
     <th>Diretor</th>
     <th>Ano</th>
+    <th></th>
   </tr>
-  <% @movies["results"].each_with_index do |item, index| %>
-    <%= render partial: 'application/table', locals: { item: item,  index: index} %>
+  
+  <% @movies["results"].each do |item| %>
+    <%= render partial: 'core/table', locals: { item: item,  likes: @likes} %>
   <% end %>
 </table>
 
- 
-    
-  
+<%= render "form" %>
