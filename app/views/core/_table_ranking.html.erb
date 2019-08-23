@@ -1,0 +1,14 @@
+<tr>
+  <td class="text-center"> <%= index + 1 %></td> 
+  <td>
+    <% if index < 2 %>
+      <%= link_to "#{movie[vote["api_key"]]["title"]}", detail_path(id: movie[vote["api_key"]]["url"].match('\/(?:\w{5})\/(\d+)\/')[1] ) %> 
+    <% else %>
+      <%= movie[vote["api_key"]]["title"]  %>
+    <% end %>
+  </td> 
+  <td><%= vote["api_key"] %></td> 
+  <td><%= movie[vote["api_key"]]["director"]  %></td> 
+  <td><%= movie[vote["api_key"]]["release_date"].to_date.strftime("%Y")  %></td> 
+  <td><%= vote["votos"] %></td> 
+</tr>

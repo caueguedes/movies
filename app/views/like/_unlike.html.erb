@@ -1,9 +1,9 @@
-<div id='par<%= item["episode_id"] %>'>
+<div id='par<%= id %>'>
   <%= link_to "", 
-        like_path(id: likes[item["episode_id"]]["id"]),
+        like_path(id: id),
         method: :delete, 
         remote: true,
-        id: "#{item["episode_id"]}",
+        id: "#{id}",
         class: 'fa fa-heart text-danger'%>
 </div>
 

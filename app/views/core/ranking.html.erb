@@ -1,1 +1,26 @@
-<h1>Ranking</h1>
+<br>
+
+<table class="table table-striped table-bordered">
+  <tr class="text-center thead-light">
+    <th>#</th>
+    <th>Nome do Filme</th>
+    <th>Episódio</th>
+    <th>Diretor</th>
+    <th>Ano</th>
+    <th>Votos</th>
+  </tr>
+  
+  <% if @votes.nil? %>
+    <tr class="text-center">
+      <td colspan="6">
+        <strong>Api de dados fora do ar.</strong>
+      </td>
+    </tr>
+  <% else %>
+      <% @votes.each_with_index do |vote, index| %>
+        <%= render partial: 'core/table_ranking', locals: { vote: vote,  index: index, movie: @movies}  %>
+      <% end %>
+  <% end %>
+</table>
+
+<small>* No caso de empate a data dos votos é usado como quesito para desempate, ficando em primeiro aquele que atingiu a quantidade de votos primeiro.</small>

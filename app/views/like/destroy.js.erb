@@ -1,0 +1,4 @@
+$(() => $("a[data-remote]").on("ajax:success", function(event) {
+      console.log($('#'+event.target.parentNode.id).html);
+      return $('#'+event.target.parentNode.id).html('<%= j render(:partial => 'like', :locals => {:id => "like_params" }) %>');
+  }));

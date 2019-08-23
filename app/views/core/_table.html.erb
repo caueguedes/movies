@@ -5,9 +5,9 @@
   <td class="text-center"><%= item["release_date"].to_date.strftime("%Y") %></td> 
   <td class="text-center"> 
     <% if @likes.include? item["episode_id"] %>
-      <%= render partial: 'like/unlike', locals: { item: item,  likes: @likes} %>
+      <%= render partial: 'like/unlike', locals: { id: item["episode_id"]} %>
     <% else %>        
-      <%= render partial: 'like/like', locals: { item: item,  likes: @likes} %>
+      <%= render partial: 'like/like', locals: { id: item["episode_id"]} %>
     <% end %>
   </td>
 </tr>

@@ -1,0 +1,21 @@
+<br>
+<% if @details.nil? %>
+  <tr class="text-center">
+    <td colspan="6">
+      <strong>Api de dados fora do ar.</strong>
+    </td>
+  </tr>
+<% else %>
+  <div class="container text-left">
+    <div class="card">
+      <div class="card-body text left">
+        <h4 class="card-title"><%= @details["title"] %></h4>
+        <h6 class="card-subtitle mb-2 text-muted"><strong>Director:</strong> <%= @details["director"] %></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><strong>Produtor:</strong> <%= @details["producer"] %></h6>
+
+        <p class="card-text"><strong>Episodio:</strong>  <%= @details["episode_id"] %> Episode <%= @details["title"] %> </p>
+        <p class="card-text"><strong>Resenha:</strong> <%= @details["opening_crawl"] %> </p>
+      </div>
+    </div>
+  </div>
+<% end %>

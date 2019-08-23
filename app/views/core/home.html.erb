@@ -8,10 +8,16 @@
     <th>Ano</th>
     <th></th>
   </tr>
-  
-  <% @movies["results"].each do |item| %>
-    <%= render partial: 'core/table', locals: { item: item,  likes: @likes} %>
+
+  <% if @movies.nil? %>
+    <tr class="text-center">
+      <td colspan="6">
+        <strong>Api de dados fora do ar.</strong>
+      </td>
+    </tr>
+  <% else %>
+    <% @movies["results"].each do |item| %>
+      <%= render partial: 'core/table', locals: { item: item,  likes: @likes} %>
+    <% end %>
   <% end %>
 </table>
-
-<%= render "form" %>
