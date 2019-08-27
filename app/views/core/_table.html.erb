@@ -5,21 +5,9 @@
   <td class="text-center"><%= item["release_date"].to_date.strftime("%Y") %></td> 
   <td class="text-center"> 
     <% if @likes.include? item["episode_id"] %>
-      <div id='<%= "unlike"+ item["episode_id"].to_s %>'>
-        <%= render partial: 'like/unlike', locals: { id: item["episode_id"]} %>
-      </div>
-      <div id='<%= "like" + item["episode_id"].to_s %>' class="d-none">
-        <%= render partial: 'like/like', locals: { id: item["episode_id"]} %>
-      </div>
-      
-
+        <%= render partial: 'like/unlike', locals: { id: item["episode_id"]} %>      
     <% else %>        
-      <div id='<%= "like" + item["episode_id"].to_s %>'>
         <%= render partial: 'like/like', locals: { id: item["episode_id"]} %>
-      </div>
-      <div id='<%= "unlike" + item["episode_id"].to_s %>' class="d-none" >
-        <%= render partial: 'like/unlike', locals: { id: item["episode_id"]} %>
-      </div>
     <% end %>
   </td>
 </tr>

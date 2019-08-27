@@ -3,7 +3,10 @@ class CoreController < ApplicationController
 
     def home
       begin
-        @movies = Swapi.fetchAll                
+        @movies = Swapi.fetchAll        
+      rescue Net::ReadTimeout => e
+        puts e.message
+        # register error
       end
       @likes = {} 
       current_user.likes.as_json.map { |x| @likes[x["api_key"]] = x }
@@ -16,12 +19,18 @@ class CoreController < ApplicationController
         @votes = Like.select("likes.api_key, max(created_at) as data, count(*) as votos"
                         ).group("likes.api_key").order("votos desc"
                         ).order("data desc").as_json.map{ |x| x }
+      rescue Net::ReadTimeout => e
+        puts e.message
+        # register error
       end       
     end
     
     def detail
       begin
         @details = Swapi.fetchDetail(det_params)
+      rescue Net::ReadTimeout => e
+        puts e.message
+        # register error
       end
     end
 

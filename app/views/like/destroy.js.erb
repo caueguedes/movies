@@ -1,0 +1,3 @@
+<% j id=  params["id"]  %>
+console.log('destroy');
+$('#'+<%= j id  %>).parent().html('<%= j render partial: 'like', :locals => {:id => id }  %>');

@@ -1,9 +1,6 @@
-<div id='par<%= id %>'>
-  <%= link_to "", 
-        like_path(id: id),
-        method: :delete, 
-        remote: true,
-        id: "#{id}",
-        class: 'fa fa-heart text-danger'%>
-</div>
-
+<%= link_to "", 
+      like_path(id: id),
+      method: :delete, 
+      remote: true,
+      id: "#{id}",
+      class: 'fa fa-heart text-danger'%>
